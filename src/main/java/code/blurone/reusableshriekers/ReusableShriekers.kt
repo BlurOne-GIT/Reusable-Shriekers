@@ -24,10 +24,11 @@ class ReusableShriekers : JavaPlugin(), Listener {
 
     @EventHandler
     private fun onPlayerInteract(event: PlayerInteractEvent) {
+        val shrieker = event.clickedBlock ?: return
         if (event.action != Action.RIGHT_CLICK_BLOCK ||
             event.material != reactivationItem ||
-            event.clickedBlock?.type != Material.SCULK_SHRIEKER ||
-            (event.clickedBlock!!.blockData as SculkShrieker).isCanSummon) return
+            shrieker.type != Material.SCULK_SHRIEKER ||
+            (shrieker.blockData as SculkShrieker).isCanSummon) return
 
         event.setUseItemInHand(Event.Result.ALLOW)
         event.item!!.amount--
@@ -37,12 +38,14 @@ class ReusableShriekers : JavaPlugin(), Listener {
         else
             event.player.swingOffHand()
 
-        (event.clickedBlock!!.blockData as SculkShrieker).isCanSummon = true
+        val blockData = shrieker.blockData as SculkShrieker
+        blockData.isCanSummon = true
+        shrieker.blockData = blockData
         event.clickedBlock!!.world.playSound(
             event.clickedBlock!!.location,
             Sound.BLOCK_SCULK_CHARGE,
             SoundCategory.BLOCKS,
-            1f,
+            2.5f,
             1.5f
         )
 
