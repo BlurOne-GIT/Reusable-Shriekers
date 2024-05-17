@@ -4,7 +4,7 @@
   <groupId>code.blurone</groupId>
   <artifactId>Reusable-Shriekers</artifactId>
   <name>ReusableShriekers</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <description>Allows players to reuse deactivated shriekers.</description>
   <url>https://github.com/BlurOne-GIT/Reusable-Shriekers</url>
   <build>
