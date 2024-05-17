@@ -1,0 +1,8 @@
+name: ReusableShriekers
+version: '${project.version}'
+main: code.blurone.reusableshriekers.ReusableShriekers
+api-version: '1.19'
+load: STARTUP
+authors: [BlurOne!]
+description: Allows players to reuse deactivated shriekers.
+website: https://github.com/BlurOne-GIT/Reusable-Shriekers
