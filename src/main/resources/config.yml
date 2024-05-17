@@ -1,0 +1,5 @@
+# Item used to reactivate the shrieker.
+# Must be from https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+item: ECHO_SHARD
+# Log to the console when a shrieker is reactivated
+logger: false
