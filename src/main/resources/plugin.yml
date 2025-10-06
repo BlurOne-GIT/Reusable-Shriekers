@@ -6,3 +6,4 @@ load: STARTUP
 authors: [BlurOne!]
 description: Allows players to reuse deactivated shriekers.
 website: https://github.com/BlurOne-GIT/Reusable-Shriekers
+folia-supported: true
