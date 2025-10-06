@@ -1,5 +1,6 @@
 package code.blurone.reusableshriekers
 
+import org.bukkit.GameMode
 import org.bukkit.Material
 import org.bukkit.Sound
 import org.bukkit.SoundCategory
@@ -28,10 +29,12 @@ class ReusableShriekers : JavaPlugin(), Listener {
         if (event.action != Action.RIGHT_CLICK_BLOCK ||
             event.material != reactivationItem ||
             shrieker.type != Material.SCULK_SHRIEKER ||
-            (shrieker.blockData as SculkShrieker).isCanSummon) return
+            (shrieker.blockData as SculkShrieker).isCanSummon ||
+            event.player.gameMode == GameMode.SPECTATOR) return
 
         event.setUseItemInHand(Event.Result.ALLOW)
-        event.item!!.amount--
+        if (event.player.gameMode != GameMode.CREATIVE)
+            event.item!!.amount--
 
         if (event.hand == EquipmentSlot.HAND)
             event.player.swingMainHand()
